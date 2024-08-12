@@ -2,12 +2,10 @@
 // import tailwindConfig from '../tailwind.config';
 // const tailwindConfigResolved = resolveConfig(tailwindConfig);
 
-// @ts-ignore
 import { tailwindConfigResolved } from 'virtual:tailwind-config';
 
-const { red } = tailwindConfigResolved.theme.colors;
-
-console.log(red[500]);
+const { theme } = tailwindConfigResolved;
+console.log(theme);
 
 function App() {
   return (
