@@ -2,9 +2,11 @@
 // import tailwindConfig from '../tailwind.config';
 // const tailwindConfigResolved = resolveConfig(tailwindConfig);
 
-import tailwindConfigResolved from 'virtual:tailwind-config';
+// import tailwindConfigResolved from 'virtual:tailwind-config';
+// const { theme } = tailwindConfigResolved;
 
-const { theme } = tailwindConfigResolved;
+import theme from 'virtual:tailwind-theme';
+
 console.log(theme);
 
 function App() {
