@@ -1,5 +1,5 @@
 declare module "virtual:tailwind-config" {
-  import type { Config } from "tailwindcss";
+  import { Config } from "tailwindcss";
 
-  export const tailwindConfigResolved: Config;
+  export = {} as Config;
 }

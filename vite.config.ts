@@ -4,8 +4,9 @@ import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "./tailwind.config";
 
 const tailwindConfigResolved = resolveConfig(tailwindConfig);
-const virtualModuleId = "virtual:tailwind-config";
-const resolvedVirtualModuleId = "\0" + virtualModuleId;
+
+const tailwindConfigModuleId = "virtual:tailwind-config";
+const tailwindConfigResolvedVirtualModuleId = "\0" + tailwindConfigModuleId;
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -15,15 +16,13 @@ export default defineConfig({
     {
       name: "tailwind-config-module",
       resolveId(id) {
-        if (id === virtualModuleId) {
-          return resolvedVirtualModuleId;
+        if (id === tailwindConfigModuleId) {
+          return tailwindConfigResolvedVirtualModuleId;
         }
       },
       load(id) {
-        if (id === resolvedVirtualModuleId) {
-          return `export const tailwindConfigResolved = ${JSON.stringify(
-            tailwindConfigResolved
-          )}`;
+        if (id === tailwindConfigResolvedVirtualModuleId) {
+          return `export default ${JSON.stringify(tailwindConfigResolved)}`;
         }
       },
     },
