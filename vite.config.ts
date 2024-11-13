@@ -1,4 +1,4 @@
-import { defineConfig } from "vite";
+import { defineConfig, PluginOption } from "vite";
 import react from "@vitejs/plugin-react";
 import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "./tailwind.config";
@@ -29,7 +29,7 @@ export default defineConfig({
           return `export default ${JSON.stringify(tailwindConfigResolved)}`;
         }
       },
-    },
+    } satisfies PluginOption,
     // tailwind theme only
     {
       name: "tailwind-theme-module",
@@ -45,6 +45,6 @@ export default defineConfig({
           )}`;
         }
       },
-    },
+    } satisfies PluginOption,
   ],
 });
